@@ -1,0 +1,1 @@
+export const LOGIN = 'LOGIN_CURRENT_USER';
