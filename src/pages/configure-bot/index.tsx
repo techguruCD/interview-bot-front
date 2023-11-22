@@ -1,16 +1,17 @@
 import BotTone from "@/components/Configurebot/BotTone";
 import FAQ from "@/components/Configurebot/FAQ";
 import FileUpload from "@/components/Configurebot/FileUpload";
+import Footer from "@/components/Footer";
+import Header from "@/components/Header";
 import { useState } from "react";
 import { RxCross1 } from "react-icons/rx";
 
+
 export default function ConfigurePageOne() {
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const [configureBotData, setConfigureBotData] = useState<Record<string, any>>(
-    {}
-  );
-  const [botTone, setBotTone] = useState<string>("");
-  const [fileUpload, setFileUpload] = useState<File>();
+  const [configureBotData, setConfigureBotData] = useState<Record<string, any>>({});
+  const [botTone, setBotTone] = useState<string>("")
+  const [fileUpload, setFileUpload] = useState<File>()
 
   // const handleFileUpload = (file: File) => {
   //   // Handle the uploaded file here
@@ -20,7 +21,10 @@ export default function ConfigurePageOne() {
     const oldData = { ...configureBotData };
     oldData[key] = payload;
     setConfigureBotData(oldData);
-  };
+  }
+
+
+
 
   const pageRenderer = () => {
     if (currentPage === 1) {
@@ -30,6 +34,7 @@ export default function ConfigurePageOne() {
             setCurrentPage={setCurrentPage}
             // onFileUpload={handleFileUpload}
             setFileUpload={setFileUpload}
+
           />
         </>
       );
@@ -44,17 +49,14 @@ export default function ConfigurePageOne() {
     if (currentPage === 3) {
       return (
         <>
-          <FAQ
-            payload={configureBotData}
-            fileData={fileUpload}
-            botTone={botTone}
-          />
+          <FAQ payload={configureBotData} fileData={fileUpload} botTone={botTone} />
         </>
       );
     }
   };
   return (
     <>
+      <Header />
       <div className="mx-[20px] md:mx=[40px] lg:mx-48">
         <div className="mt-4 lg:mt-[12px] pb-2">
           <div className="border-[1px]  border-gray-400 rounded-md w-[100%]  ">
@@ -152,6 +154,7 @@ export default function ConfigurePageOne() {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 }

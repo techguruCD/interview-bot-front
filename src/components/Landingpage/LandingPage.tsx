@@ -24,10 +24,8 @@ const LandingPage = () => {
     <>
       <div id="home" className="mx-[20px] md:mx=[40px] lg:mx-32">
         <div className="mt-4 lg:mt-[12px] pb-2">
-          {/* <div className="mb-8 flex justify-center lg:flex lg:flex-row lg:justify-center gap-20 relative">
-            <nav
-              className={`w-full  ${navbar ? "bg-[#1d1326]" : "bg-[#f5f5f5]"} `}
-            >
+          <div className="mb-8 flex justify-center lg:flex lg:flex-row lg:justify-center gap-20 relative">
+            <nav className={`w-full  ${navbar ? "bg-[#1d1326]" : "bg-[#f5f5f5]"} `}>
               <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-0">
                 <div>
                   <div className="flex items-center justify-between py-3 md:py-5 md:block">
@@ -40,11 +38,7 @@ const LandingPage = () => {
                         alt="logo"
                         className="cursor-pointer"
                       />
-                      <p
-                        className={`ml-[16px] flex items-center capitalize font-bold ${
-                          navbar ? "text-white" : "text-black"
-                        }`}
-                      >
+                      <p className={`ml-[16px] flex items-center capitalize font-bold ${navbar ? "text-white" : "text-black"}`}>
                         interview bot
                       </p>
                     </div>
@@ -54,11 +48,7 @@ const LandingPage = () => {
                         onClick={() => setNavbar(!navbar)}
                       >
                         {navbar ? (
-                          <RxCross1
-                            className={`${
-                              navbar ? "text-white" : "text-black"
-                            }`}
-                          />
+                          <RxCross1 className={`${navbar ? "text-white" : "text-black"}`} />
                         ) : (
                           <AiOutlineMenu className="text-black" />
                         )}
@@ -68,9 +58,7 @@ const LandingPage = () => {
                 </div>
                 <div>
                   <div
-                    className={`flex-1 justify-self-center pb-3 mt-8 md:block md:pb-0 md:mt-0 ${
-                      navbar ? "block" : "hidden"
-                    }`}
+                    className={`flex-1 justify-self-center pb-3 mt-8 md:block md:pb-0 md:mt-0 ${navbar ? "block" : "hidden"}`}
                   >
                     <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0 text-right">
                       <li>
@@ -143,7 +131,7 @@ const LandingPage = () => {
                 <div></div>
               </div>
             </nav>
-          </div> */}
+          </div>
           <div className="flex flex-col justify-center items-center lg:flex lg:flex-row lg:justify-evenly">
             <div className="">
               <div className="max-w-[739px] whitespace-nowrap lg:whitespace-pre-wrap font-bold text-[28px] md:text-[48px] lg:text-[64px] xl:text-[100px] 2xl:text-[128px] mb-[10px] leading-tight text-center lg:text-left">
@@ -208,8 +196,7 @@ const LandingPage = () => {
                   Want to interview a bot?{" "}
                 </p>
                 <p className="text-[20px] font-normal text-center leading-7">
-                  Who wouldn&apos;t? Select a professional below and grill them
-                  as you see fit
+                  Who wouldn&apos;t? Select a professional below and grill them as you see fit
                 </p>
               </div>
               {/* <div className="flex flex-wrap justify-evenly gap-4 mt-4">
@@ -245,6 +232,7 @@ const LandingPage = () => {
             <SimpleSlider />
           </div>
           <section id="blog">
+
             <div className="mt-20 mb-20">
               <div>
                 <div className="mb-6 mt-6">
@@ -303,6 +291,7 @@ const LandingPage = () => {
           <></>
         </div>
       </div>
+      <Footer />
     </>
   );
 };

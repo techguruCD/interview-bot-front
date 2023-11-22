@@ -1,3 +1,4 @@
+import Header from "@/components/Header";
 import Image from "next/image";
 import { useState } from "react";
 import toast from "react-hot-toast";
@@ -5,18 +6,22 @@ import { Register } from "@/backend/User";
 import { eyeOff } from "react-icons-kit/feather/eyeOff";
 import { eye } from "react-icons-kit/feather/eye";
 import Link from "next/link";
+import Footer from "@/components/Footer";
 import Icon from "react-icons-kit";
 import Loading from "@/components/Loader";
-import { useGlobalDispatch } from "@/components/State";
+import { useGlobalDispatch } from "@/components/State"
 import { useRouter } from "next/router";
 import Cookies from "js-cookie";
 import SocialLogins from "@/components/SocialLogin";
 import { ApiResponse, setAuthToken } from "@/backend/RestApi";
 
+
 export default function Home() {
+
   const router = useRouter();
 
   const dispatch = useGlobalDispatch();
+
 
   const [username, setusername] = useState<string>("");
   const [email, setEmail] = useState<string>("");
@@ -26,39 +31,49 @@ export default function Home() {
   const [loading, setLoading] = useState<boolean>(false);
 
   const handleLoginResponse = (response: ApiResponse) => {
+
     if (response.status === true) {
+
       if (response?.data?.token) {
-        Cookies.set("token", response.data.token);
+
+        Cookies.set('token', response.data.token);
         setAuthToken(response.data.token);
         dispatch({
-          type: "LOGIN_CURRENT_USER",
-          payload: response.data.token,
+          type: 'LOGIN_CURRENT_USER', payload: response.data.token
         });
 
         if (response?.message) {
           toast.success(response?.message);
         }
 
-        router.push("/profile");
+        router.push('/profile');
       } else {
-        toast.error("Unexpected error occured");
+        toast.error('Unexpected error occured');
       }
+
+
     } else {
-      toast.error(response?.message ?? "Unexpected error occured");
+      toast.error(response?.message ?? 'Unexpected error occured');
     }
     setLoading(false);
-  };
+  }
+
 
   const handleSignUp = async () => {
+
     setLoading(true);
     const response = await Register(username, email, password);
-    handleLoginResponse(response);
+    handleLoginResponse(response)
+
+
   };
 
-  if (loading) return <Loading />;
+  if (loading)
+    return <Loading />
 
   return (
     <>
+      <Header />
       <div className=" bg-[#F5F5F5] pt-[64px] pb-[64px]">
         <div className="mx-[20px] md:mx=[40px] lg:mx-[80px] bg-[#F5F5F5] ">
           <div className="flex justify-center">
@@ -120,7 +135,7 @@ export default function Home() {
                       Password
                     </label>
                     <input
-                      type={showPassword ? "text" : "password"}
+                      type={showPassword ? 'text' : 'password'}
                       id="password"
                       name="password"
                       value={password}
@@ -133,9 +148,7 @@ export default function Home() {
                     />
                     <button
                       className="flex justify-around items-center"
-                      onClick={() => {
-                        setShowPassword(!showPassword);
-                      }}
+                      onClick={() => { setShowPassword(!showPassword) }}
                     >
                       <Icon
                         className="absolute bottom-[10%] right-[4%]"
@@ -147,9 +160,8 @@ export default function Home() {
                   <div className="flex items-center justify-between">
                     <button
                       onClick={handleSignUp}
-                      className={`bg-[#6355D8] w-full text-white py-2 px-4 rounded-full hover:bg-[#6355D8] transition duration-300 ease-in-out ${
-                        loading ? "opacity-50 cursor-not-allowed" : ""
-                      }`}
+                      className={`bg-[#6355D8] w-full text-white py-2 px-4 rounded-full hover:bg-[#6355D8] transition duration-300 ease-in-out ${loading ? "opacity-50 cursor-not-allowed" : ""
+                        }`}
                       disabled={loading}
                     >
                       Sign Up
@@ -159,10 +171,12 @@ export default function Home() {
                 <div className="mt-4 text-center">
                   <p>
                     Been here before?{" "}
+
                     <Link
                       href="/login"
                       className="text-[#6355D8] hover:underline"
                     >
+
                       Login
                     </Link>
                   </p>
@@ -172,6 +186,7 @@ export default function Home() {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 }
