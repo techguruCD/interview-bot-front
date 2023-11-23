@@ -13,6 +13,14 @@ const menu = [
     path: "/",
   },
   {
+    title: "Profile",
+    path: "/profile",
+  },
+  {
+    title: "Chat",
+    path: "/chat",
+  },
+  {
     title: "About",
     path: "/about",
   },

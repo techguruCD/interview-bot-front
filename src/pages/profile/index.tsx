@@ -50,35 +50,35 @@ const Admin = () => {
       }
       try {
         // Replace with your server's URL
-        const result = await fetch("http://localhost:5000/upload", {
+        const result = await fetch("http://localhost:5500/upload", {
           method: "POST",
           body: formData,
         });
         const data = await result.json();
         setDocument(data.filenames);
 
-        await fetch("http://localhost:5000/clear_indexes", {
+        await fetch("http://localhost:5500/clear_indexes", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            pinecone_api_key: "b84a158f-4401-409b-a63b-636aebbd29b1",
-            pinecone_environment: "us-west1-gcp-free",
-            pinecone_index_name: "internal-knowledgebase",
+            pinecone_api_key: "abb12473-9392-44fa-8ade-9d7c449b56e2",
+            pinecone_environment: "gcp-starter",
+            pinecone_index_name: "text-embeddings",
           }),
         });
 
-        const response = await fetch("http://localhost:5000/create_indexes", {
+        await fetch("http://localhost:5500/create_indexes", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
             file_names: data.filenames,
-            pinecone_api_key: "b84a158f-4401-409b-a63b-636aebbd29b1",
-            pinecone_environment: "us-west1-gcp-free",
-            pinecone_index_name: "internal-knowledgebase",
+            pinecone_api_key: "abb12473-9392-44fa-8ade-9d7c449b56e2",
+            pinecone_environment: "gcp-starter",
+            pinecone_index_name: "text-embeddings",
             openai_api_key:
               "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",
           }),

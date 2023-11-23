@@ -48,7 +48,7 @@ const ChatBox = ({
   const handleSend = async () => {
     setHistory([...history, [payload]]);
     setPayload("");
-    const response = await fetch("http://localhost:5000/chat", {
+    const response = await fetch("http://localhost:5500/chat", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -56,9 +56,9 @@ const ChatBox = ({
       body: JSON.stringify({
         query: payload,
         chat_history: history,
-        pinecone_api_key: "b84a158f-4401-409b-a63b-636aebbd29b1",
-        pinecone_environment: "us-west1-gcp-free",
-        pinecone_index_name: "internal-knowledgebase",
+        pinecone_api_key: "abb12473-9392-44fa-8ade-9d7c449b56e2",
+        pinecone_environment: "gcp-starter",
+        pinecone_index_name: "text-embeddings",
         openai_api_key: "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",
         prompt: prompt,
       }),

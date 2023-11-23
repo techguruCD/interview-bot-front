@@ -4,7 +4,7 @@ const Blog = () => {
   return (
     <div className="max-w-[1200px] mx-auto">
       <div className="flex flex-row">
-        <div className="flex-1 mr-[42px] text-[0.9rem] font-black leading-[120%] tracking-[1px]">
+        <div className="flex-1 mr-[42px] text-[0.9rem] font-black leading-[120%] tracking-[1px] pt-[50px]">
           <a href="" className="text-[#0093c2]">
             ARTIFICIAL INTELIGENCE
           </a>
@@ -322,20 +322,35 @@ const Blog = () => {
 
         <div className="w-[1px] bg-gray-300"></div>
         <div className="w-[28.5%] pl-[3.75%]">
-          <div></div>
-          <div className="mt-[40px] pt-[40px] ">
+          <div className="mt-[40px]">
+            <div className="">
+              <input
+                className="border-gray-300 p-[20px] border-[1px]"
+                placeholder="Search"
+              ></input>
+              <button></button>
+            </div>
+          </div>
+          <div className="pt-[40px] mt-[40px] border-t-gray-300 border-t-[1px]">
             <div className="border-b-[2px] border-[#0093c2] tracking-[1px] text-[.8rem] leading-1 font-black inline-block">
               ABOUT
             </div>
             <div className="text-[#888888] font-bold mt-[15px]">Author</div>
             <div className="text-[#888888]">Neil Aitken</div>
+            <div>
+              <br />
+            </div>
             <div className="">
               <img
                 src="https://neilaitkenblog.files.wordpress.com/2018/11/neil-aitken.jpg"
                 alt="user-img"
+                width={148}
               ></img>
             </div>
-            <div className="text-[#888888]">Co-Founder</div>
+            <div>
+              <br />
+            </div>
+            <div className="mt-[1em] text-[#888888]">Co-Founder</div>
             <div className="">
               <span className="text-[#888888]">of </span>
               <a href="https://aitkenblog.com.au/2023/07/30/how-australia-could-approach-potential-unemployment-from-generative-ai/">
