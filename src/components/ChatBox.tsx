@@ -48,7 +48,7 @@ const ChatBox = ({
   const handleSend = async () => {
     setHistory([...history, [payload]]);
     setPayload("");
-    const response = await fetch("http://localhost:5500/chat", {
+    const response = await fetch(process.env.NEXT_PUBLIC_API_URL + "/chat", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

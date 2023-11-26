@@ -50,14 +50,14 @@ const Admin = () => {
       }
       try {
         // Replace with your server's URL
-        const result = await fetch("http://localhost:5500/upload", {
+        const result = await fetch(process.env.NEXT_PUBLIC_API_URL + "/upload", {
           method: "POST",
           body: formData,
         });
         const data = await result.json();
         setDocument(data.filenames);
 
-        await fetch("http://localhost:5500/clear_indexes", {
+        await fetch(process.env.NEXT_PUBLIC_API_URL + "/clear_indexes", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -69,7 +69,7 @@ const Admin = () => {
           }),
         });
 
-        await fetch("http://localhost:5500/create_indexes", {
+        await fetch(process.env.NEXT_PUBLIC_API_URL + "/create_indexes", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
